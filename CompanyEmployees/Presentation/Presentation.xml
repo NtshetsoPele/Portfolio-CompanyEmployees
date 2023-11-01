@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Presentation</name>
+    </assembly>
+    <members>
+        <member name="M:Presentation.Controllers.CompaniesV2Controller.GetCompanies">
+            <summary>
+              Gets the list of all companies
+            </summary>
+            <returns>The companies list</returns>
+            <response code="201">Returns the newly created item.</response>
+            <response code="400">If the item is null.</response>
+            <response code="422">If the model is invalid.</response>
+        </member>
+    </members>
+</doc>
