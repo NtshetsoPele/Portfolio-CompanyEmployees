@@ -87,8 +87,7 @@ app.UseSwaggerUI((SwaggerUIOptions options) =>
     options.SwaggerEndpoint(url: "/swagger/v2/swagger.json", name: "My API v2");
 });
 
-//app.MigrateDatabase().Run();
-app.Run();
+app.MigrateDatabase().Run();
 
 // Configures support for JSON Patch using Newtonsoft.Json while leaving
 // the other formatters unchanged.

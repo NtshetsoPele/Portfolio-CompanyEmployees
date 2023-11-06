@@ -11,6 +11,11 @@ public static class MigrationsManager
         using var dbContext = scope.ServiceProvider.GetRequiredService<RepositoryContext>();
         try
         {
+            if (!dbContext.Database.IsRelational())
+            {
+                return host;
+            }
+
             dbContext.Database.Migrate();
         }
         catch (SqlException _)
@@ -23,7 +28,7 @@ public static class MigrationsManager
             Thread.Sleep(millisecondsTimeout: 10_000);
             _numberOfRetries++;
             Console.WriteLine("The server was not found or was not accessible. " +
-                              $"Retrying... #{_numberOfRetries}.");
+                              $"Retrying... # {_numberOfRetries}.");
             MigrateDatabase(host);
 
             throw;
