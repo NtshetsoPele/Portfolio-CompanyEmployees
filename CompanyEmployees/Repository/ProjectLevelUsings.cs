@@ -13,3 +13,6 @@ global using Repository.Extensions.Utility;
 global using System.Reflection;
 global using System.Text;
 global using Contracts.Repositories.UnitOfWork;
+global using Microsoft.Data.SqlClient;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Hosting;

@@ -1,0 +1,13 @@
+﻿global using Xunit;
+global using Contracts.Repositories;
+global using Entities.Models;
+global using Moq;
+global using Entities.ErrorModel;
+global using Entities.Responses;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Mvc;
+global using Presentation.Controllers;
+global using Service.Contracts;
+global using Shared.DataTransferObjects.Company.Request;
+global using Shared.DataTransferObjects.Company.Response;
+global using AutoFixture.Xunit2;

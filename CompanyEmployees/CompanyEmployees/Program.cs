@@ -57,7 +57,16 @@ WebApplication app = builder.Build();
 
 var logger = app.Services.GetRequiredService<ILoggerManager>();
 app.ConfigureExceptionHandler(logger);
-app.AllowHttpsOnly();
+if (app.Environment.IsProduction())
+{
+    app.AllowHttpsOnly();
+}
+else
+{
+    app.UseHsts();
+    app.UseHttpsRedirection();
+}
+
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.All
@@ -78,6 +87,7 @@ app.UseSwaggerUI((SwaggerUIOptions options) =>
     options.SwaggerEndpoint(url: "/swagger/v2/swagger.json", name: "My API v2");
 });
 
+//app.MigrateDatabase().Run();
 app.Run();
 
 // Configures support for JSON Patch using Newtonsoft.Json while leaving
@@ -96,3 +106,5 @@ static NewtonsoftJsonPatchInputFormatter GetJsonPatchInputFormatter(IServiceProv
     return mvcOptions.InputFormatters.OfType<NewtonsoftJsonPatchInputFormatter>().First();
 }
 */
+
+public partial class Program { }

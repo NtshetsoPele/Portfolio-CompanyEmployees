@@ -29,8 +29,7 @@ public class ValidationFilterAttribute : IActionFilter
         {
             return context.ActionArguments
                 .SingleOrDefault((KeyValuePair<string, object?> argumentPair) =>
-                    //argumentPair.Value!.ToString()!.Contains("Dto")).Value;
-                    argumentPair.Key!.ToString()!.Contains("Dto")).Value;
+                    argumentPair.Value!.ToString()!.Contains("Dto")).Value;
         }
 
         BadRequestObjectResult GetBadRequestResponse()
